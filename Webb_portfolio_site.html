@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blake Webb - Engineering Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            border-bottom: 2px solid #e0e0e0;
+            padding: 2rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 300;
+            letter-spacing: 0.1em;
+        }
+
+        /* Filter Controls */
+        .filter-controls {
+            background: #f8f8f8;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .filter-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .filter-buttons {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-btn {
+            padding: 0.5rem 1.5rem;
+            border: 2px solid #333;
+            background: #fff;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .filter-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .filter-btn.active {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 3rem 2rem;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .project-card {
+            background: #fff;
+            border: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .project-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+
+        .project-card.hidden {
+            display: none;
+        }
+
+        .project-image {
+            width: 100%;
+            height: 250px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-title {
+            padding: 1.5rem;
+            font-size: 1.2rem;
+            font-weight: 400;
+            text-align: center;
+            border-top: 1px solid #e0e0e0;
+        }
+
+        /* Project Detail Page */
+        .project-detail {
+            display: none;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .project-detail.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .back-btn {
+            padding: 0.75rem 2rem;
+            border: 2px solid #333;
+            background: #fff;
+            cursor: pointer;
+            font-size: 1rem;
+            margin-bottom: 2rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        .project-header {
+            margin-bottom: 3rem;
+        }
+
+        .project-header h2 {
+            font-size: 2.5rem;
+            font-weight: 300;
+            margin-bottom: 1rem;
+        }
+
+        .project-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .detail-image {
+            width: 100%;
+            height: 400px;
+            background: #f0f0f0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .detail-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .project-section {
+            margin-bottom: 3rem;
+        }
+
+        .project-section h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .project-section p, .project-section ul {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .project-section ul {
+            list-style-position: inside;
+            margin-top: 0.5rem;
+        }
+
+        /* CV Section */
+        .cv-section {
+            margin-top: 4rem;
+            padding-top: 3rem;
+            border-top: 2px solid #e0e0e0;
+            text-align: center;
+        }
+
+        .cv-section h2 {
+            font-size: 2rem;
+            font-weight: 300;
+            margin-bottom: 1.5rem;
+        }
+
+        .cv-link {
+            display: inline-block;
+            padding: 1rem 3rem;
+            border: 2px solid #333;
+            text-decoration: none;
+            color: #333;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+        }
+
+        .cv-link:hover {
+            background: #333;
+            color: #fff;
+        }
+
+        /* Homepage only */
+        #homepage {
+            display: block;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-images {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>Blake Webb </h1>
+        </div>
+    </header>
+
+    <!-- Homepage -->
+    <div id="homepage">
+        <div class="filter-controls">
+            <div class="filter-wrapper">
+                <div class="filter-buttons">
+                    <button class="filter-btn active" onclick="filterProjects('all')">All Projects</button>
+                    <button class="filter-btn" onclick="filterProjects('quantum')">Quantum Computing</button>
+                    <button class="filter-btn" onclick="filterProjects('materials')">Materials Science</button>
+                    <button class="filter-btn" onclick="filterProjects('robotics')">Robotics</button>
+                    <button class="filter-btn" onclick="filterProjects('vlsi')">VLSI/Electronics</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="projects-grid">
+                <!-- Micromouse -->
+                <div class="project-card" data-tags="robotics" onclick="showProject('micromouse')">
+                    <div class="project-image">
+                        <img src="micromouse_maze.jpg" alt="Micromouse" onerror="this.parentElement.innerHTML='<span>Micromouse Image</span>'">
+                    </div>
+                    <div class="project-title">Micromouse Robot</div>
+                </div>
+
+                <!-- VLSI Cache Design -->
+                <div class="project-card" data-tags="vlsi quantum" onclick="showProject('vlsi-cache')">
+                    <div class="project-image">
+                        <img src="VLSI-Chip.jpg" alt="VLSI Cache" onerror="this.parentElement.innerHTML='<span>VLSI Cache Image</span>'">
+                    </div>
+                    <div class="project-title">VLSI Cache Design</div>
+                </div>
+
+                <!-- BJT Audio Amplifier -->
+                <div class="project-card" data-tags="vlsi materials" onclick="showProject('bjt-amplifier')">
+                    <div class="project-image">
+                        <img src="bjt_animation.webp" alt="BJT Amplifier" onerror="this.parentElement.innerHTML='<span>BJT Amplifier Image</span>'">
+                    </div>
+                    <div class="project-title">BJT Audio Amplifier</div>
+                </div>
+
+                <!-- DFT Research -->
+                <div class="project-card" data-tags="vlsi materials" onclick="showProject('dft-research')">
+                    <div class="project-image">
+                        <img src="computational_chemistry.jpg" alt="DFT Research" onerror="this.parentElement.innerHTML='<span>DFT Research Image</span>'">
+                    </div>
+                    <div class="project-title"> MXene DFT Research</div>
+                </div>
+
+                <!-- Dofbot -->
+                <div class="project-card" data-tags="robotics" onclick="showProject('dofotbot')">
+                    <div class="project-image">
+                        <img src="Dofbot_sim_gazebo_img.png" alt="Dofbot" onerror="this.parentElement.innerHTML='<span>Dofotbot Image</span>'">
+                    </div>
+                    <div class="project-title">Dofbot Differential Camera Robot</div>
+                </div>
+
+                <!-- Inverted Pendulum -->
+                <div class="project-card" data-tags="robotics" onclick="showProject('inverted-pendulum')">
+                    <div class="project-image">
+                        <img src="Schematic-diagram-of-an-inverted-pendulum-on-a-cart.png" alt="Inverted Pendulum" onerror="this.parentElement.innerHTML='<span>Inverted Pendulum Image</span>'">
+                    </div>
+                    <div class="project-title">Inverted Pendulum Control</div>
+                </div>
+
+                <!-- Kalman Filter -->
+                <div class="project-card" data-tags="robotics quantum" onclick="showProject('kalman-filter')">
+                    <div class="project-image">
+                        <img src="normal_guassian_image.png" alt="Kalman Filter" onerror="this.parentElement.innerHTML='<span>Kalman Filter Image</span>'">
+                    </div>
+                    <div class="project-title">Kalman Filter Implementation</div>
+                </div>
+
+                <!-- FPGA Processor -->
+                <div class="project-card" data-tags="vlsi quantum" onclick="showProject('fpga-processor')">
+                    <div class="project-image">
+                        <img src="FPGA-Field-Programmable-Gate-Array.png" alt="FPGA Processor" onerror="this.parentElement.innerHTML='<span>FPGA Processor Image</span>'">
+                    </div>
+                    <div class="project-title">FPGA Processor Design</div>
+                </div>
+
+                <!-- Digital Noise Filter -->
+                <div class="project-card" data-tags="vlsi quantum" onclick="showProject('noise-filter')">
+                    <div class="project-image">
+                        <img src="butterworth-filter.png" alt="Noise Filter" onerror="this.parentElement.innerHTML='<span>Noise Filter Image</span>'">
+                    </div>
+                    <div class="project-title">Digital Noise Filter (MATLAB)</div>
+                </div>
+
+                <!-- MLS Timing Control -->
+                <div class="project-card" data-tags="vlsi" onclick="showProject('mls-timing')">
+                    <div class="project-image">
+                        <img src="mls_main_image.jpg" alt="MLS Timing" onerror="this.parentElement.innerHTML='<span>MLS Timing Image</span>'">
+                    </div>
+                    <div class="project-title">MLS Timing Control Unit</div>
+                </div>
+            </div>
+
+            <div class="cv-section">
+                <h2>Curriculum Vitae</h2>
+                <a href="Webb_Resume_111325.pdf" class="cv-link" target="_blank">Download CV (PDF)</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Project Detail Template (Hidden by default) -->
+    <div id="project-template" class="project-detail">
+        <div class="container">
+            <button class="back-btn" onclick="backToHome()">← Back to Projects</button>
+            
+            <div class="project-header">
+                <h2 id="project-detail-title">Project Title</h2>
+            </div>
+
+            <div class="project-images" id="project-detail-images">
+                <div class="detail-image">
+                    <img src="" alt="Project Image 1" onerror="this.parentElement.innerHTML='<span>Project Image 1</span>'">
+                </div>
+                <div class="detail-image">
+                    <img src="" alt="Project Image 2" onerror="this.parentElement.innerHTML='<span>Project Image 2</span>'">
+                </div>
+            </div>
+
+            <div class="project-section">
+                <h3>Purpose & Overview</h3>
+                <p id="project-purpose">Description of what the project is and why you did it.</p>
+            </div>
+
+            <div class="project-section">
+                <h3>Methodology & Tools</h3>
+                <p id="project-methodology">Description of how you approached the problem, what tools you used, and whether you worked alone or with a team.</p>
+            </div>
+
+            <div class="project-section">
+                <h3>Results & Outcomes</h3>
+                <p id="project-results">Description of what you achieved, key findings, and any metrics or demonstrations.</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Project data structure
+        const projects = {
+            'micromouse': {
+                title: 'Micromouse Robot',
+                images: ['MMB-MSD-white.PNG', 'FSD, revised after LaBerge.jpg'],
+                purpose: 'Designed and built an autonomous maze-solving robot for the Micromouse competition. The goal was to create a robot that could navigate and solve a 16x16 maze as quickly as possible using algorithmic pathfinding.',
+                methodology: 'Developed using C++ on an STM32 microcontroller, implemented flood-fill algorithm for maze solving, and integrated IR sensors for wall detection. Designed custom PCB for motor control and sensor integration. Worked with a team of 3 engineers over one semester.',
+                results: 'Successfully completed maze navigation with sub-10-second solve times. Robot consistently found optimal path after initial exploration run. Placed in top 20% at regional competition.'
+            },
+            'vlsi-cache': {
+                title: 'VLSI Cache Design',
+                images: ['Cache_block_vlsi_diagram.png', 'FSM-vlsi-cache-diagram.png'],
+                purpose: 'Designed a high-performance cache memory system as part of advanced VLSI coursework. Focus on minimizing access time while maintaining low power consumption.',
+                methodology: 'Used Cadence Virtuoso for schematic design and layout. Implemented 4-way set associative cache with LRU replacement policy. Performed extensive SPICE simulations to optimize timing. Individual project completed over 8 weeks.',
+                results: 'Achieved 2.5ns access time with 15% lower power consumption compared to baseline design. Successfully passed all DRC and LVS checks. Final layout area was 0.8mm².'
+            },
+            'bjt-amplifier': {
+                title: 'BJT Audio Amplifier',
+                images: ['Output_stage_BJT_amplifier_breadboard.png', 'output_stage_BJT_amplifier_circuit.png'],
+                purpose: 'Built a Class AB audio amplifier using discrete BJT components for analog electronics course. Aimed for high fidelity audio reproduction with minimal distortion.',
+                methodology: 'Designed and simulated in LTSpice, then breadboarded and tested with function generator and oscilloscope. Used complementary pair configuration for push-pull output stage. Solo project with professor guidance.',
+                results: 'Achieved 20W output power with THD <0.5% across 20Hz-20kHz range. Measured 95dB SNR. Successfully drove 8-ohm speaker with clear audio reproduction.'
+            },
+            'dft-research': {
+                title: 'MXene DFT Research',
+                images: ['MXenes_DFT_TiC2_graphic.png', 'Webb-SciArt-SURF-Poster-2025.pptx.jpg'],
+                purpose: 'Conducted research on Design-for-Test methodologies for complex SoC designs during 10-week summer internship at [Company Name]. Focused on improving test coverage while reducing test time.',
+                methodology: 'Used Synopsys tools for scan insertion and ATPG. Developed scripts in Python and TCL to automate test pattern generation. Worked closely with senior engineer mentor and presented weekly to team of 8.',
+                results: 'Improved fault coverage from 92% to 97.5% while reducing test time by 18%. Developed reusable methodology documented in internal technical report. Findings contributed to product tape-out.'
+            },
+            'dofotbot': {
+                title: 'Dofbot Differential Camera Robot',
+                images: ['CSEE Research Day 2025.jpg', 'dofbot_commercial_pic.jpg'],
+                purpose: 'Undergraduate research project developing a differential drive robot with computer vision for autonomous navigation and object tracking in indoor environments.',
+                methodology: 'Programmed in Python using ROS framework. Integrated Raspberry Pi 4 with camera module for vision processing using OpenCV. Implemented PID control for motor control and used SLAM for mapping. Worked with faculty advisor and graduate student over 6 months.',
+                results: 'Robot successfully tracked colored objects with 95% accuracy and navigated obstacle courses autonomously. Presented findings at undergraduate research symposium and contributed to lab publication.'
+            },
+            'inverted-pendulum': {
+                title: 'Inverted Pendulum Control',
+                images: ['simulink_estimator_pic.png', 'Schematic-diagram-of-an-inverted-pendulum-on-a-cart.png'],
+                purpose: 'Classic control systems project to balance an inverted pendulum on a motorized cart. Demonstrated understanding of feedback control and system stability.',
+                methodology: 'Modeled system dynamics in MATLAB/Simulink and designed LQR controller. Implemented on Arduino with rotary encoder for angle measurement and DC motor for cart actuation. Individual project for controls course.',
+                results: 'Successfully balanced pendulum for over 30 seconds with disturbance rejection. Achieved settling time of 1.2s after disturbance. Validated simulation model matched physical system within 8% error.'
+            },
+            'kalman-filter': {
+                title: 'Kalman Filter Implementation',
+                images: ['parta_var_noise.png', 'partc_kalman_filter_t_var_noise.png'],
+                purpose: 'Ongoing project implementing Kalman filtering for sensor fusion in robotics applications. Combining IMU and GPS data for accurate state estimation.',
+                methodology: 'Implementing in Python using numpy for matrix operations. Testing with simulated sensor data before hardware integration. Planning to integrate with ROS for real robot testing. Individual research project.',
+                results: 'Current work-in-progress: Basic filter running in simulation with 40% noise reduction compared to raw sensor data. Next steps include extended Kalman filter for nonlinear systems and hardware validation.'
+            },
+            'fpga-processor': {
+                title: 'FPGA Processor Design',
+                images: ['FPGA_processor_diagram_farrell.png', 'Register_file_alu_diagram_farrell.png'],
+                purpose: 'Designed and implemented a custom RISC processor on FPGA for computer architecture course. Goal was understanding processor microarchitecture from ground up.',
+                methodology: 'Coded in Verilog and synthesized on Xilinx Artix-7 FPGA. Implemented 5-stage pipeline with hazard detection and forwarding. Used Vivado for synthesis and timing analysis. Team of 2 students over full semester.',
+                results: 'Successfully executed RISC-V instruction subset at 50MHz clock frequency. Passed all test programs including sorting algorithms and matrix operations. Final design used 18% of FPGA resources.'
+            },
+            'noise-filter': {
+                title: 'Digital Noise Filter (MATLAB)',
+                images: ['cmpe323proj_fig15.png', 'cmpe323proj_fig17.png'],
+                purpose: 'Digital signal processing project developing adaptive filters for real-time noise cancellation in audio signals. Explored different filter architectures and their tradeoffs.',
+                methodology: 'Implemented in MATLAB using Signal Processing Toolbox. Tested FIR and IIR designs with different windowing functions. Analyzed frequency response and phase characteristics. Individual project with biweekly advisor meetings.',
+                results: 'Achieved 25dB noise reduction for white noise while maintaining signal fidelity. FIR filter with 64 taps provided best balance of performance and computational cost. Generated comprehensive technical report with analysis.'
+            },
+            'mls-timing': {
+                title: 'MLS Timing Control Unit',
+                images: ['TCU_DFD.png', 'TCU_SBD.png'],
+                purpose: 'Pre-capstone project designing a timing control unit for multi-layer scanning system. Required precise coordination of multiple actuators and sensors.',
+                methodology: 'Designed in Verilog and simulated using ModelSim. Implemented state machine for sequence control and timing generators for various frequencies. Used Quartus for FPGA implementation on DE2 board. Team of 4 students.',
+                results: 'Met all timing specifications with jitter <5ns. Successfully controlled 6 independent channels with microsecond precision. System operated reliably for 48-hour stress test. Documented in 40-page technical report.'
+            }
+        };
+
+        function filterProjects(tag) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (tag === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    const tags = card.getAttribute('data-tags');
+                    if (tags && tags.includes(tag)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function showProject(projectId) {
+            const project = projects[projectId];
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('project-template').classList.add('active');
+            
+            document.getElementById('project-detail-title').textContent = project.title;
+            document.getElementById('project-purpose').textContent = project.purpose;
+            document.getElementById('project-methodology').textContent = project.methodology;
+            document.getElementById('project-results').textContent = project.results;
+            
+            const imagesDiv = document.getElementById('project-detail-images');
+            imagesDiv.innerHTML = '';
+            project.images.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'detail-image';
+                div.innerHTML = `<img src="${img}" alt="Project Image ${index + 1}" onerror="this.parentElement.innerHTML='<span>Project Image ${index + 1}</span>'">`;
+                imagesDiv.appendChild(div);
+            });
+            
+            window.scrollTo(0, 0);
+        }
+
+        function backToHome() {
+            document.getElementById('project-template').classList.remove('active');
+            document.getElementById('homepage').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
