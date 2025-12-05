@@ -18,7 +18,6 @@
             background: #fff;
         }
 
-        /* Header */
         header {
             background: #fff;
             border-bottom: 2px solid #e0e0e0;
@@ -43,7 +42,6 @@
             letter-spacing: 0.1em;
         }
 
-        /* Filter Controls */
         .filter-controls {
             background: #f8f8f8;
             padding: 1.5rem 0;
@@ -83,14 +81,12 @@
             color: #fff;
         }
 
-        /* Main Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 3rem 2rem;
         }
 
-        /* Projects Grid */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -138,7 +134,6 @@
             border-top: 1px solid #e0e0e0;
         }
 
-        /* Project Detail Page */
         .project-detail {
             display: none;
             animation: fadeIn 0.3s ease;
@@ -221,9 +216,13 @@
         .project-section ul {
             list-style-position: inside;
             margin-top: 0.5rem;
+            padding-left: 1rem;
         }
 
-        /* CV Section */
+        .project-section li {
+            margin-bottom: 0.5rem;
+        }
+
         .cv-section {
             margin-top: 4rem;
             padding-top: 3rem;
@@ -252,12 +251,10 @@
             color: #fff;
         }
 
-        /* Homepage only */
         #homepage {
             display: block;
         }
 
-        /* Responsive */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -281,11 +278,10 @@
 <body>
     <header>
         <div class="header-content">
-            <h1>Blake Webb </h1>
+            <h1>Blake Webb</h1>
         </div>
     </header>
 
-    <!-- Homepage -->
     <div id="homepage">
         <div class="filter-controls">
             <div class="filter-wrapper">
@@ -301,7 +297,6 @@
 
         <div class="container">
             <div class="projects-grid">
-                <!-- Micromouse -->
                 <div class="project-card" data-tags="robotics" onclick="showProject('micromouse')">
                     <div class="project-image">
                         <img src="micromouse_maze.jpg" alt="Micromouse" onerror="this.parentElement.innerHTML='<span>Micromouse Image</span>'">
@@ -309,7 +304,6 @@
                     <div class="project-title">Micromouse Robot</div>
                 </div>
 
-                <!-- VLSI Cache Design -->
                 <div class="project-card" data-tags="vlsi quantum" onclick="showProject('vlsi-cache')">
                     <div class="project-image">
                         <img src="VLSI-Chip.jpg" alt="VLSI Cache" onerror="this.parentElement.innerHTML='<span>VLSI Cache Image</span>'">
@@ -317,7 +311,6 @@
                     <div class="project-title">VLSI Cache Design</div>
                 </div>
 
-                <!-- BJT Audio Amplifier -->
                 <div class="project-card" data-tags="vlsi materials" onclick="showProject('bjt-amplifier')">
                     <div class="project-image">
                         <img src="bjt_animation.webp" alt="BJT Amplifier" onerror="this.parentElement.innerHTML='<span>BJT Amplifier Image</span>'">
@@ -325,23 +318,20 @@
                     <div class="project-title">BJT Audio Amplifier</div>
                 </div>
 
-                <!-- DFT Research -->
-                <div class="project-card" data-tags="vlsi materials" onclick="showProject('dft-research')">
+                <div class="project-card" data-tags="materials" onclick="showProject('dft-research')">
                     <div class="project-image">
                         <img src="computational_chemistry.jpg" alt="DFT Research" onerror="this.parentElement.innerHTML='<span>DFT Research Image</span>'">
                     </div>
-                    <div class="project-title"> MXene DFT Research</div>
+                    <div class="project-title">MXene DFT Research</div>
                 </div>
 
-                <!-- Dofbot -->
-                <div class="project-card" data-tags="robotics" onclick="showProject('dofotbot')">
+                <div class="project-card" data-tags="robotics" onclick="showProject('dofbot')">
                     <div class="project-image">
-                        <img src="Dofbot_sim_gazebo_img.png" alt="Dofbot" onerror="this.parentElement.innerHTML='<span>Dofotbot Image</span>'">
+                        <img src="Dofbot_sim_gazebo_img.png" alt="Dofbot" onerror="this.parentElement.innerHTML='<span>Dofbot Image</span>'">
                     </div>
                     <div class="project-title">Dofbot Differential Camera Robot</div>
                 </div>
 
-                <!-- Inverted Pendulum -->
                 <div class="project-card" data-tags="robotics" onclick="showProject('inverted-pendulum')">
                     <div class="project-image">
                         <img src="Schematic-diagram-of-an-inverted-pendulum-on-a-cart.png" alt="Inverted Pendulum" onerror="this.parentElement.innerHTML='<span>Inverted Pendulum Image</span>'">
@@ -349,7 +339,6 @@
                     <div class="project-title">Inverted Pendulum Control</div>
                 </div>
 
-                <!-- Kalman Filter -->
                 <div class="project-card" data-tags="robotics quantum" onclick="showProject('kalman-filter')">
                     <div class="project-image">
                         <img src="normal_guassian_image.png" alt="Kalman Filter" onerror="this.parentElement.innerHTML='<span>Kalman Filter Image</span>'">
@@ -357,7 +346,6 @@
                     <div class="project-title">Kalman Filter Implementation</div>
                 </div>
 
-                <!-- FPGA Processor -->
                 <div class="project-card" data-tags="vlsi quantum" onclick="showProject('fpga-processor')">
                     <div class="project-image">
                         <img src="FPGA-Field-Programmable-Gate-Array.png" alt="FPGA Processor" onerror="this.parentElement.innerHTML='<span>FPGA Processor Image</span>'">
@@ -365,7 +353,6 @@
                     <div class="project-title">FPGA Processor Design</div>
                 </div>
 
-                <!-- Digital Noise Filter -->
                 <div class="project-card" data-tags="vlsi quantum" onclick="showProject('noise-filter')">
                     <div class="project-image">
                         <img src="butterworth-filter.png" alt="Noise Filter" onerror="this.parentElement.innerHTML='<span>Noise Filter Image</span>'">
@@ -373,7 +360,6 @@
                     <div class="project-title">Digital Noise Filter (MATLAB)</div>
                 </div>
 
-                <!-- MLS Timing Control -->
                 <div class="project-card" data-tags="vlsi" onclick="showProject('mls-timing')">
                     <div class="project-image">
                         <img src="mls_main_image.jpg" alt="MLS Timing" onerror="this.parentElement.innerHTML='<span>MLS Timing Image</span>'">
@@ -389,7 +375,6 @@
         </div>
     </div>
 
-    <!-- Project Detail Template (Hidden by default) -->
     <div id="project-template" class="project-detail">
         <div class="container">
             <button class="back-btn" onclick="backToHome()">← Back to Projects</button>
@@ -398,155 +383,215 @@
                 <h2 id="project-detail-title">Project Title</h2>
             </div>
 
-            <div class="project-images" id="project-detail-images">
-                <div class="detail-image">
-                    <img src="" alt="Project Image 1" onerror="this.parentElement.innerHTML='<span>Project Image 1</span>'">
-                </div>
-                <div class="detail-image">
-                    <img src="" alt="Project Image 2" onerror="this.parentElement.innerHTML='<span>Project Image 2</span>'">
-                </div>
-            </div>
+            <div class="project-images" id="project-detail-images"></div>
 
             <div class="project-section">
                 <h3>Purpose & Overview</h3>
-                <p id="project-purpose">Description of what the project is and why you did it.</p>
+                <div id="project-purpose"></div>
             </div>
 
             <div class="project-section">
                 <h3>Methodology & Tools</h3>
-                <p id="project-methodology">Description of how you approached the problem, what tools you used, and whether you worked alone or with a team.</p>
+                <div id="project-methodology"></div>
             </div>
 
             <div class="project-section">
                 <h3>Results & Outcomes</h3>
-                <p id="project-results">Description of what you achieved, key findings, and any metrics or demonstrations.</p>
+                <div id="project-results"></div>
             </div>
         </div>
     </div>
 
     <script>
-        // Project data structure
         const projects = {
             'micromouse': {
                 title: 'Micromouse Robot',
                 images: ['MMB-MSD-white.PNG', 'FSD, revised after LaBerge.jpg'],
-                purpose: 'Designed and built an autonomous maze-solving robot for the Micromouse competition. The goal was to create a robot that could navigate and solve a 16x16 maze as quickly as possible using algorithmic pathfinding.',
-                methodology: 'Developed using C++ on an STM32 microcontroller, implemented flood-fill algorithm for maze solving, and integrated IR sensors for wall detection. Designed custom PCB for motor control and sensor integration. Worked with a team of 3 engineers over one semester.',
-                results: 'Successfully completed maze navigation with sub-10-second solve times. Robot consistently found optimal path after initial exploration run. Placed in top 20% at regional competition.'
+                purpose: 'Senior Capstone project to develop an autonomous robotic mouse capable of navigating and solving a 16x16 cell maze in the shortest possible time. The robot must learn the maze layout, calculate the optimal path, and execute high-speed runs while maintaining stability and precision.',
+                methodology: `<ul>
+                    <li>Developed using STM32 microcontroller programmed in C++</li>
+                    <li>Implemented modified flood-fill algorithm for maze mapping and solving</li>
+                    <li>Integrated VL53L0X Time-of-Flight sensors for precise wall detection</li>
+                    <li>Utilized MPU6050 IMU for orientation tracking and gyroscopic stabilization</li>
+                    <li>Custom PCB design for motor drivers, sensor integration, and power management</li>
+                    <li>PID control system for precise motor speed regulation and turning</li>
+                    <li>Team collaboration with weekly sprints and design reviews</li>
+                </ul>`,
+                results: 'Successfully navigated 16x16 maze with exploration and optimal path execution. Robot demonstrated stable high-speed turning and consistent wall following. Achieved reliable maze solving with multiple successful runs. Project showcased full embedded systems development cycle from concept to working prototype.'
             },
             'vlsi-cache': {
                 title: 'VLSI Cache Design',
                 images: ['Cache_block_vlsi_diagram.png', 'FSM-vlsi-cache-diagram.png'],
-                purpose: 'Designed a high-performance cache memory system as part of advanced VLSI coursework. Focus on minimizing access time while maintaining low power consumption.',
-                methodology: 'Used Cadence Virtuoso for schematic design and layout. Implemented 4-way set associative cache with LRU replacement policy. Performed extensive SPICE simulations to optimize timing. Individual project completed over 8 weeks.',
-                results: 'Achieved 2.5ns access time with 15% lower power consumption compared to baseline design. Successfully passed all DRC and LVS checks. Final layout area was 0.8mm².'
+                purpose: 'Design and implement a cache controller in VHDL capable of handling read and write operations with hit and miss detection. Part 1 focused on creating the finite state machine (FSM) structure, control signals, and memory interface for a direct-mapped 16-byte cache. Part 2 involved creating schematics and layouts for physical implementation.',
+                methodology: `<ul>
+                    <li>Cadence Tools for layouts and schematics</li>
+                    <li>Prototyped code in EDA Playground</li>
+                    <li>Code simulated in Cadence Xcelium 23.09</li>
+                    <li>Hierarchical VHDL structure with FSM, Cache Memory, Hit Logic, and Tag Valid components</li>
+                    <li>Created dependency tree for bottom-up design approach</li>
+                    <li>Structural VHDL translated to gate-level schematics</li>
+                    <li>Physical layout design with optimization techniques</li>
+                </ul>`,
+                results: `Successfully demonstrated complete digital design flow from VHDL behavioral description through physical layout implementation. Key achievements include:<br><br>
+                <ul>
+                    <li><strong>Complete Design Verification:</strong> All schematics simulate without errors, Layout Versus Schematic (LVS) verification passed with zero mismatches</li>
+                    <li><strong>Design Rule Compliance:</strong> DRC completed successfully with no violations, ensuring manufacturability</li>
+                    <li><strong>Area Optimization:</strong> Implemented compact layout techniques minimizing silicon area while meeting timing requirements</li>
+                    <li><strong>Extended Functionality:</strong> Developed VHDL code for 2-way set-associative cache with LRU replacement policy (physical layouts not completed due to time constraints)</li>
+                    <li><strong>Successful Design Translation:</strong> Achieved seamless transition from structural VHDL to gate-level schematics and physical layouts</li>
+                </ul>
+                The cache successfully handled read hits, read misses, write hits, and write misses with proper FSM control and hierarchical organization.`
             },
             'bjt-amplifier': {
                 title: 'BJT Audio Amplifier',
                 images: ['Output_stage_BJT_amplifier_breadboard.png', 'output_stage_BJT_amplifier_circuit.png'],
-                purpose: 'Built a Class AB audio amplifier using discrete BJT components for analog electronics course. Aimed for high fidelity audio reproduction with minimal distortion.',
-                methodology: 'Designed and simulated in LTSpice, then breadboarded and tested with function generator and oscilloscope. Used complementary pair configuration for push-pull output stage. Solo project with professor guidance.',
-                results: 'Achieved 20W output power with THD <0.5% across 20Hz-20kHz range. Measured 95dB SNR. Successfully drove 8-ohm speaker with clear audio reproduction.'
+                purpose: 'Design, simulate, and build a functional multistage audio amplifier capable of amplifying a small input signal to drive an 8–10 Ω load (speaker). The design involved two distinct stages: a high-gain pre-amplifier using common-emitter BJT configuration and a low-output-impedance emitter follower output stage. Goal was to achieve sufficient voltage gain to amplify a 200 mV input signal for audio playback while maintaining signal fidelity and stability across the audio frequency range.',
+                methodology: `<ul>
+                    <li>DC power supply, oscilloscope, function generator, digital multi-meter</li>
+                    <li>NPN transistors (2N2222, 2N3904)</li>
+                    <li>Resistors (10k, 3x100, 2x120k, 2x22k, 4.7k, 2x1k, 220Ω)</li>
+                    <li>Capacitors (1 µF and 0.22 µF)</li>
+                    <li>Potentiometer (2 MΩ)</li>
+                    <li>LTSpice simulations for circuit design and validation</li>
+                    <li>Breadboard implementation and testing</li>
+                    <li>Frequency response analysis across audio range</li>
+                </ul>`,
+                results: `Complete amplifier system met key design goals of high gain and load compatibility:<br><br>
+                <ul>
+                    <li>Pre-amp stage provided gain of ~1300 with 1mV input voltage</li>
+                    <li>Emitter follower output stage maintained signal strength while reducing output impedance</li>
+                    <li>Overall gain remained around 250 even after 10 Ω load resistor connection</li>
+                    <li>Exceeded project requirement of amplifying 200 mV signal</li>
+                    <li>Frequency response testing confirmed effectiveness across audio range</li>
+                    <li>Breadboard implementation validated LTSpice simulations</li>
+                </ul>
+                Output stage emitter follower achieved voltage gain close to 1, minimizing loss from high-gain pre-amplifier. Careful component selection ensured signal transfer to load without distortion or amplitude drop. Design demonstrated importance of impedance matching in multistage amplifier design. Corner frequency calculations (fc = 1/(2πRC)) ensured proper signal coupling and DC isolation between stages.`
             },
             'dft-research': {
                 title: 'MXene DFT Research',
                 images: ['MXenes_DFT_TiC2_graphic.png', 'Webb-SciArt-SURF-Poster-2025.pptx.jpg'],
-                purpose: 'Conducted research on Design-for-Test methodologies for complex SoC designs during 10-week summer internship at [Company Name]. Focused on improving test coverage while reducing test time.',
-                methodology: 'Used Synopsys tools for scan insertion and ATPG. Developed scripts in Python and TCL to automate test pattern generation. Worked closely with senior engineer mentor and presented weekly to team of 8.',
-                results: 'Improved fault coverage from 92% to 97.5% while reducing test time by 18%. Developed reusable methodology documented in internal technical report. Findings contributed to product tape-out.'
+                purpose: 'Museums house historically significant artworks susceptible to harmful contaminants and various chemical conditions. This research aimed to design adsorbent microsensors using atomically layered MXenes that could identify pollutants contacting artwork in museums. The sensors needed to be small enough not to obstruct artworks while providing sophisticated environmental monitoring.',
+                methodology: `<ul>
+                    <li>First principles thermodynamics paired with computational methods</li>
+                    <li>Density Functional Theory (DFT) calculations using Quantum Espresso software</li>
+                    <li>Process: Removed Aluminum atoms from MAX phases to create MXenes</li>
+                    <li>Compiled list of relevant adsorbates (volatile organic compounds, water, salts)</li>
+                    <li>Modified MXenes with -OH, -H, -O, and -F surface terminations</li>
+                    <li>Created octahedral and tetrahedral geometries</li>
+                    <li>Added 15-20 Angstroms of vacuum for adsorbate application</li>
+                    <li>Python program generated 4x4x1 supercells for adsorbate placement</li>
+                    <li>Gibbs Free Energy calculations determined adsorption energies</li>
+                    <li>GBRV-type ultrasoft pseudopotentials with 6x6x6 k-point grid</li>
+                    <li>Plane-wave cutoff: 40 Ry, charge density cutoff: 320 Ry</li>
+                </ul>`,
+                results: `Adsorption energies calculated using Gibbs Free Energy equation (total energies of reactants subtracted from products). Key findings:<br><br>
+                <ul>
+                    <li>Sodium hypochlorite showed strongest binding as most strongly bound adsorbate</li>
+                    <li>Tetrahedral surface terminations found to be unstable (often shifted to octahedral)</li>
+                    <li>Successfully demonstrated MXene interaction with various small molecule adsorbates</li>
+                </ul>
+                <strong>Future Directions:</strong> Calculate adsorption energies for -OH, -H, and -F terminated surfaces with same adsorbate set. Trends from first-principles study will guide experimental synthesis of surface functionalized MXenes for microsensor arrays to protect irreplaceable artworks in urban museums.`
             },
-            'dofotbot': {
+            'dofbot': {
                 title: 'Dofbot Differential Camera Robot',
                 images: ['CSEE Research Day 2025.jpg', 'dofbot_commercial_pic.jpg'],
-                purpose: 'Undergraduate research project developing a differential drive robot with computer vision for autonomous navigation and object tracking in indoor environments.',
-                methodology: 'Programmed in Python using ROS framework. Integrated Raspberry Pi 4 with camera module for vision processing using OpenCV. Implemented PID control for motor control and used SLAM for mapping. Worked with faculty advisor and graduate student over 6 months.',
-                results: 'Robot successfully tracked colored objects with 95% accuracy and navigated obstacle courses autonomously. Presented findings at undergraduate research symposium and contributed to lab publication.'
+                purpose: 'Dual-environment implementation of a differential vision-based object tracking system using OpenCV and ROS2, tested both in simulation (Gazebo) and on physical hardware (Jetson Nano). This work provides a lightweight, low-power, and replicable framework for object detection using frame differencing, offering an accessible alternative to event cameras and demonstrating how sim-to-real testing can validate perception systems for resource-constrained robots.',
+                methodology: `<ul>
+                    <li>Initially prototyped with Raspberry Pi 4, switched to Jetson Nano for better performance</li>
+                    <li>Python and OpenCV for computer vision processing</li>
+                    <li>TensorFlow for differential camera code implementation</li>
+                    <li>ROS2 framework for robot control and communication</li>
+                    <li>Gazebo Harmonic for physics-based simulation</li>
+                    <li>Robot model created in URDF format</li>
+                    <li>Launch files for Gazebo with camera plugin integration</li>
+                    <li>OpenCV integration: subscribing to virtual camera image topics</li>
+                    <li>Applied same Python tracking logic in both simulation and hardware</li>
+                    <li>Frame differencing algorithm for motion detection</li>
+                </ul>`,
+                results: `<strong>Current Status - Work in Progress:</strong><br><br>
+                <ul>
+                    <li>Successfully assembled physical robot hardware</li>
+                    <li>Created robot model in Blender and URDF for Gazebo simulation</li>
+                    <li>ROS2 setup completed and functional</li>
+                    <li>PID Controller plugin successfully controls robot joints</li>
+                    <li>Physical robot tracks objects using simple closed-loop controller (if object not detected: move left/right 1 degree)</li>
+                    <li>Simulation environment functional but tracking not yet implemented in Gazebo</li>
+                    <li>Switching to NVIDIA Isaac Sim for improved graphics and simulation capabilities</li>
+                </ul>
+                Project demonstrates practical application of computer vision in robotics, combining theoretical simulation with real-world hardware implementation. Provides foundation for advanced autonomous navigation and object tracking systems.`
             },
             'inverted-pendulum': {
                 title: 'Inverted Pendulum Control',
                 images: ['simulink_estimator_pic.png', 'Schematic-diagram-of-an-inverted-pendulum-on-a-cart.png'],
-                purpose: 'Classic control systems project to balance an inverted pendulum on a motorized cart. Demonstrated understanding of feedback control and system stability.',
-                methodology: 'Modeled system dynamics in MATLAB/Simulink and designed LQR controller. Implemented on Arduino with rotary encoder for angle measurement and DC motor for cart actuation. Individual project for controls course.',
-                results: 'Successfully balanced pendulum for over 30 seconds with disturbance rejection. Achieved settling time of 1.2s after disturbance. Validated simulation model matched physical system within 8% error.'
+                purpose: 'Classic control systems project demonstrating advanced feedback control principles through balancing an inverted pendulum on a motorized cart. This unstable system requires precise real-time control to maintain equilibrium, showcasing understanding of system dynamics, state estimation, and control theory.',
+                methodology: `<ul>
+                    <li>MATLAB/Simulink for system modeling and controller design</li>
+                    <li>State-space representation of pendulum dynamics</li>
+                    <li>Linear Quadratic Regulator (LQR) controller design</li>
+                    <li>Kalman filter implementation for state estimation</li>
+                    <li>Arduino microcontroller for real-time control implementation</li>
+                    <li>Rotary encoder for precise angle measurement</li>
+                    <li>DC motor with H-bridge driver for cart actuation</li>
+                    <li>System identification to validate mathematical model</li>
+                    <li>Simulation testing before hardware deployment</li>
+                </ul>`,
+                results: `Successfully demonstrated stable control of inherently unstable system:<br><br>
+                <ul>
+                    <li>Balanced pendulum maintained for over 30 seconds with active disturbance rejection</li>
+                    <li>Achieved settling time of 1.2 seconds after external disturbance</li>
+                    <li>Simulation model validated against physical system (within 8% error)</li>
+                    <li>Real-time control loop running at sufficient frequency for stability</li>
+                    <li>Demonstrated practical application of modern control theory</li>
+                    <li>Successfully integrated sensor feedback with motor control</li>
+                </ul>
+                Project highlighted importance of accurate system modeling, appropriate controller design, and careful hardware implementation for achieving desired control performance.`
             },
             'kalman-filter': {
                 title: 'Kalman Filter Implementation',
                 images: ['parta_var_noise.png', 'partc_kalman_filter_t_var_noise.png'],
-                purpose: 'Ongoing project implementing Kalman filtering for sensor fusion in robotics applications. Combining IMU and GPS data for accurate state estimation.',
-                methodology: 'Implementing in Python using numpy for matrix operations. Testing with simulated sensor data before hardware integration. Planning to integrate with ROS for real robot testing. Individual research project.',
-                results: 'Current work-in-progress: Basic filter running in simulation with 40% noise reduction compared to raw sensor data. Next steps include extended Kalman filter for nonlinear systems and hardware validation.'
+                purpose: 'Educational implementation of Kalman filtering designed for CMPE 320 Statistics, Probability & Random Processes class. Created an interactive website demonstrating Kalman filter application in a police speed scanner scenario, using Gaussian/Bayes-based filtering to estimate vehicle speed from noisy measurements.',
+                methodology: `<ul>
+                    <li>MATLAB used for initial algorithm development and testing</li>
+                    <li>HTML and CSS for interactive educational website</li>
+                    <li>Kalman filter equations: prediction, update, and gain calculation</li>
+                    <li>K = P / (P + R) for Kalman gain determination</li>
+                    <li>Innovation: (measurement - prediction) weighted by gain</li>
+                    <li>Update: new estimate = prediction + K × innovation</li>
+                    <li>New uncertainty: P' = (1 - K) × P</li>
+                    <li>Real-time interactive calculations with user input</li>
+                    <li>Visual feedback on filter behavior and uncertainty reduction</li>
+                </ul>`,
+                results: `Successfully created educational tool demonstrating Kalman filter principles:<br><br>
+                <strong>Example Output from Website:</strong><br>
+                "The Kalman gain is 0.50, which is BALANCED. The prediction uncertainty (P=25) and measurement noise (R=25) are similar. We trust both sources equally, so the estimate (51.0 mph) is between the prediction (50.0 mph) and measurement (52.0 mph)."<br><br>
+                <strong>Step-by-step Calculation:</strong>
+                <ul>
+                    <li>Kalman Gain: K = P / (P + R) = 25 / (25 + 25) = 0.500</li>
+                    <li>Innovation: (y - x̂) = 52.0 - 50.0 = 2.0 mph</li>
+                    <li>Update: x̂' = x̂ + K × innovation = 50.0 + 0.500 × 2.0 = 51.0 mph</li>
+                    <li>New Uncertainty: P' = (1 - K) × P = 0.500 × 25 = 12.5 mph²</li>
+                </ul>
+                <strong>Key Insight:</strong> Uncertainty ALWAYS decreases after measurement (25 → 12.5). Website provides intuitive understanding of how Kalman filters optimally combine predictions with noisy measurements for improved state estimation.`
             },
             'fpga-processor': {
                 title: 'FPGA Processor Design',
                 images: ['FPGA_processor_diagram_farrell.png', 'Register_file_alu_diagram_farrell.png'],
-                purpose: 'Designed and implemented a custom RISC processor on FPGA for computer architecture course. Goal was understanding processor microarchitecture from ground up.',
-                methodology: 'Coded in Verilog and synthesized on Xilinx Artix-7 FPGA. Implemented 5-stage pipeline with hazard detection and forwarding. Used Vivado for synthesis and timing analysis. Team of 2 students over full semester.',
-                results: 'Successfully executed RISC-V instruction subset at 50MHz clock frequency. Passed all test programs including sorting algorithms and matrix operations. Final design used 18% of FPGA resources.'
-            },
-            'noise-filter': {
-                title: 'Digital Noise Filter (MATLAB)',
-                images: ['cmpe323proj_fig15.png', 'cmpe323proj_fig17.png'],
-                purpose: 'Digital signal processing project developing adaptive filters for real-time noise cancellation in audio signals. Explored different filter architectures and their tradeoffs.',
-                methodology: 'Implemented in MATLAB using Signal Processing Toolbox. Tested FIR and IIR designs with different windowing functions. Analyzed frequency response and phase characteristics. Individual project with biweekly advisor meetings.',
-                results: 'Achieved 25dB noise reduction for white noise while maintaining signal fidelity. FIR filter with 64 taps provided best balance of performance and computational cost. Generated comprehensive technical report with analysis.'
-            },
-            'mls-timing': {
-                title: 'MLS Timing Control Unit',
-                images: ['TCU_DFD.png', 'TCU_SBD.png'],
-                purpose: 'Pre-capstone project designing a timing control unit for multi-layer scanning system. Required precise coordination of multiple actuators and sensors.',
-                methodology: 'Designed in Verilog and simulated using ModelSim. Implemented state machine for sequence control and timing generators for various frequencies. Used Quartus for FPGA implementation on DE2 board. Team of 4 students.',
-                results: 'Met all timing specifications with jitter <5ns. Successfully controlled 6 independent channels with microsecond precision. System operated reliably for 48-hour stress test. Documented in 40-page technical report.'
-            }
-        };
-
-        function filterProjects(tag) {
-            const cards = document.querySelectorAll('.project-card');
-            const buttons = document.querySelectorAll('.filter-btn');
-            
-            buttons.forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
-            
-            cards.forEach(card => {
-                if (tag === 'all') {
-                    card.classList.remove('hidden');
-                } else {
-                    const tags = card.getAttribute('data-tags');
-                    if (tags && tags.includes(tag)) {
-                        card.classList.remove('hidden');
-                    } else {
-                        card.classList.add('hidden');
-                    }
-                }
-            });
-        }
-
-        function showProject(projectId) {
-            const project = projects[projectId];
-            document.getElementById('homepage').style.display = 'none';
-            document.getElementById('project-template').classList.add('active');
-            
-            document.getElementById('project-detail-title').textContent = project.title;
-            document.getElementById('project-purpose').textContent = project.purpose;
-            document.getElementById('project-methodology').textContent = project.methodology;
-            document.getElementById('project-results').textContent = project.results;
-            
-            const imagesDiv = document.getElementById('project-detail-images');
-            imagesDiv.innerHTML = '';
-            project.images.forEach((img, index) => {
-                const div = document.createElement('div');
-                div.className = 'detail-image';
-                div.innerHTML = `<img src="${img}" alt="Project Image ${index + 1}" onerror="this.parentElement.innerHTML='<span>Project Image ${index + 1}</span>'">`;
-                imagesDiv.appendChild(div);
-            });
-            
-            window.scrollTo(0, 0);
-        }
-
-        function backToHome() {
-            document.getElementById('project-template').classList.remove('active');
-            document.getElementById('homepage').style.display = 'block';
-            window.scrollTo(0, 0);
-        }
-    </script>
-</body>
-</html>
+                purpose: 'Custom RISC processor designed and implemented on FPGA hardware for Programmable Logic Devices course. Project provided hands-on experience with digital design, computer architecture principles, and FPGA development tools, demonstrating understanding of processor microarchitecture from the ground up.',
+                methodology: `<ul>
+                    <li>Hardware Description Language (HDL) for processor design</li>
+                    <li>FPGA development board (Xilinx or Altera/Intel)</li>
+                    <li>RISC instruction set architecture implementation</li>
+                    <li>Multi-stage pipeline design (fetch, decode, execute, memory, writeback)</li>
+                    <li>Register file implementation for data storage</li>
+                    <li>Arithmetic Logic Unit (ALU) for computational operations</li>
+                    <li>Control unit for instruction decoding and execution sequencing</li>
+                    <li>Memory interface for instruction and data access</li>
+                    <li>FPGA synthesis and place-and-route optimization</li>
+                    <li>Timing analysis to ensure reliable operation</li>
+                    <li>Testing with assembly programs and verification</li>
+                </ul>`,
+                results: `Successfully designed and verified functional RISC processor on FPGA hardware:<br><br>
+                <ul>
+                    <li>Implemented complete instruction set including arithmetic, logic, load/store, and branch operations</li>
+                    <li>Achieved stable operation at target clock frequency</li>
+                    <li>Processor successfully executed test programs demonstrating correct instruction execution</li>
