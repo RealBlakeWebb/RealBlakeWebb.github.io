@@ -595,3 +595,114 @@
                     <li>Implemented complete instruction set including arithmetic, logic, load/store, and branch operations</li>
                     <li>Achieved stable operation at target clock frequency</li>
                     <li>Processor successfully executed test programs demonstrating correct instruction execution</li>
+                    <li>Register file and ALU verified through extensive simulation</li>
+                    <li>Control signals properly generated for all instruction types</li>
+                    <li>Synthesis and implementation completed successfully on FPGA</li>
+                </ul>
+                Project demonstrated complete understanding of processor design from specification through hardware implementation, including instruction set architecture, datapath design, and control logic.`
+            },
+            'noise-filter': {
+                title: 'Digital Noise Filter (MATLAB)',
+                images: ['cmpe323proj_fig15.png', 'cmpe323proj_fig17.png'],
+                purpose: 'Butterworth filter created for CMPE 323 Signals and Systems course to eliminate unwanted noise from provided analog signals. Project demonstrated understanding of frequency domain analysis, filter design principles, and digital signal processing techniques.',
+                methodology: `<ul>
+                    <li>MATLAB used for filter design and implementation</li>
+                    <li>Fast Fourier Transform (FFT) to analyze harmonics and frequency content</li>
+                    <li>Identified fundamental frequency of signal</li>
+                    <li>Butterworth filter function called to design optimal filter</li>
+                    <li>Filter design syntax: [b,a] = butter(n, Wn, ftype)</li>
+                    <li>Supports lowpass, highpass, bandpass, or bandstop configurations</li>
+                    <li>Bandpass and bandstop designs are of order 2n</li>
+                    <li>Analyzed pre-filter and post-filter signal characteristics</li>
+                    <li>Verified filter performance through frequency response plots</li>
+                    <li>Limited signal bandwidth to desired frequency range</li>
+                </ul>`,
+                results: `Successfully removed unwanted frequency components using Butterworth filter design:<br><br>
+                <ul>
+                    <li>Unwanted noise frequencies successfully eliminated while preserving signal integrity</li>
+                    <li>FFT analysis showed clear separation of fundamental frequency from noise</li>
+                    <li>Post-filter signal demonstrated clean frequency spectrum</li>
+                    <li>Filter met design specifications for passband and stopband characteristics</li>
+                    <li>Smooth frequency response typical of Butterworth filters achieved</li>
+                    <li>Demonstrated practical application of filter design theory</li>
+                </ul>
+                Project showcased complete signal processing workflow: signal analysis, filter specification, implementation, and performance verification.`
+            },
+            'mls-timing': {
+                title: 'MLS Timing Control Unit',
+                images: ['TCU_DFD.png', 'TCU_SBD.png'],
+                purpose: 'The Microwave Landing System (MLS) predated GPS for aircraft guidance. The Timing Control Unit (TCU) works in tandem with a Signal in Space (SIS) module to direct aircraft to correct landing position by communicating spatial information. The TCU sends pulses to the SIS module that are converted into sine waves, communicating Elevation, Azimuth, Back Azimuth, and various data words for precision aircraft landing guidance.',
+                methodology: `<ul>
+                    <li>Adafruit Itsy Bitsy microcontroller platform</li>
+                    <li>UART (Universal Asynchronous Receiver-Transmitter) communication protocol</li>
+                    <li>Serial data transmission for pulse generation</li>
+                    <li>Arduino IDE for firmware development and programming</li>
+                    <li>Timing sequence generation for multiple signal types</li>
+                    <li>Precise pulse width and interval control</li>
+                    <li>Integration with Signal in Space module</li>
+                    <li>Waveform generation and verification</li>
+                    <li>Protocol implementation for aviation standards</li>
+                </ul>`,
+                results: `Signals successfully generated and converted to sine waves, with challenges identified for future improvement:<br><br>
+                <ul>
+                    <li>Pulses successfully sent from TCU to SIS module</li>
+                    <li>Sine wave conversion achieved with correct frequency and timing</li>
+                    <li>Elevation, Azimuth, and Back Azimuth signals generated properly</li>
+                    <li>Data word transmission functional</li>
+                </ul>
+                <strong>Challenge Identified:</strong> Serial communication limitation prevented simultaneous reading and translation to sine waves, resulting in gaps in waveforms. All operations performed serially created timing constraints.<br><br>
+                <strong>Future Improvement:</strong> SPI (Serial Peripheral Interface) communication recommended for next iteration to enable parallel operations and eliminate waveform gaps. This would allow continuous signal generation while maintaining data integrity.`
+            }
+        };
+
+        function filterProjects(tag) {
+            const cards = document.querySelectorAll('.project-card');
+            const buttons = document.querySelectorAll('.filter-btn');
+            
+            buttons.forEach(btn => btn.classList.remove('active'));
+            event.target.classList.add('active');
+            
+            cards.forEach(card => {
+                if (tag === 'all') {
+                    card.classList.remove('hidden');
+                } else {
+                    const tags = card.getAttribute('data-tags');
+                    if (tags && tags.includes(tag)) {
+                        card.classList.remove('hidden');
+                    } else {
+                        card.classList.add('hidden');
+                    }
+                }
+            });
+        }
+
+        function showProject(projectId) {
+            const project = projects[projectId];
+            document.getElementById('homepage').style.display = 'none';
+            document.getElementById('project-template').classList.add('active');
+            
+            document.getElementById('project-detail-title').textContent = project.title;
+            document.getElementById('project-purpose').innerHTML = project.purpose;
+            document.getElementById('project-methodology').innerHTML = project.methodology;
+            document.getElementById('project-results').innerHTML = project.results;
+            
+            const imagesDiv = document.getElementById('project-detail-images');
+            imagesDiv.innerHTML = '';
+            project.images.forEach((img, index) => {
+                const div = document.createElement('div');
+                div.className = 'detail-image';
+                div.innerHTML = `<img src="${img}" alt="Project Image ${index + 1}" onerror="this.parentElement.innerHTML='<span>Project Image ${index + 1}</span>'">`;
+                imagesDiv.appendChild(div);
+            });
+            
+            window.scrollTo(0, 0);
+        }
+
+        function backToHome() {
+            document.getElementById('project-template').classList.remove('active');
+            document.getElementById('homepage').style.display = 'block';
+            window.scrollTo(0, 0);
+        }
+    </script>
+</body>
+</html>
